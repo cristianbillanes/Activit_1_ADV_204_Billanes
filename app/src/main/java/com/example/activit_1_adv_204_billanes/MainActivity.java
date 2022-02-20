@@ -19,14 +19,20 @@ public class MainActivity extends AppCompatActivity {
         Result = findViewById(R.id.Result);
         Non_negative_integer = findViewById(R.id.non_negative_integer);
     }
-    public void Convert(View view){
-        int input =0;
-        try{
-        input = Integer. parseInt(Non_negative_integer.getText().toString());}
-        catch (Exception e){
+
+    public void Convert(View view) {
+        Result.setText(Result());
+    }
+    private String Result(){
+        int input = 0;
+        try {
+            input = Integer.parseInt(Non_negative_integer.getText().toString());
+        } catch (Exception e) {
             input = 0;
-            Result.setText("Error");
+            return("Number only");
         }
+        if(input<0)
+            return ("Postive number only");
         int sorted = 0;
         int digits = 10;
         int sortedDigits = 1;
@@ -42,9 +48,9 @@ public class MainActivity extends AppCompatActivity {
                 for (int i = 0; i < sortedDigits; i++) {
                     int tmpDigit = tmp % 10;
                     if (digit <= tmpDigit) {
-                        sorted = sorted/toDivide*toDivide*10 + digit*toDivide + sorted % toDivide;
+                        sorted = sorted / toDivide * toDivide * 10 + digit * toDivide + sorted % toDivide;
                         break;
-                    } else if (i == sortedDigits-1) {
+                    } else if (i == sortedDigits - 1) {
                         sorted = digit * digits + sorted;
                     }
                     tmp /= 10;
@@ -59,8 +65,6 @@ public class MainActivity extends AppCompatActivity {
             first = false;
             input = input / 10;
         }
-        Result.setText(sorted+"");
-
-
+        return(sorted + "");
     }
 }

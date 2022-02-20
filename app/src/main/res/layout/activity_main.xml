@@ -13,15 +13,17 @@
 
     <EditText
         android:id="@+id/non_negative_integer"
+        android:inputType="number"
+        android:singleLine="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:textSize="100px"/>
+        android:textSize="100px" />
     <Button
         android:layout_marginVertical="100px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Descending Order"
+        android:text="Sort Descending Order"
+        android:layout_marginHorizontal="50px"
         android:textSize="100px"
         android:onClick="Convert"/>
     <TextView
